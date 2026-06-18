@@ -1,4 +1,4 @@
-# 🎡 Fortune Spin
+# [🎡 Fortune Spin](https://fatemehsooki.github.io/Project-Fortune-Spin/)
 
 A modern casino-inspired **Wheel of Fortune** built with **Vanilla JavaScript**, **HTML**, **CSS**, and **Tailwind CSS**.
 
@@ -58,3 +58,14 @@ This project recreates the excitement of a real casino prize wheel with smooth s
 * Dark/Light themes
 * Mobile touch gestures
 
+## 👩🏻‍💻 Developer
+
+- Fatemeh Sooki
+- Role - Frontend
+
+- Created - 2026-06-05
+
+- Mentor: [Parsa Ghorbanian](https://www.instagram.com/parsa_ghorbanian_web?igsh=MXQydDAxMW05ZjgyYg==)
+
+
+- How to reach me : with my [instagram](https://www.instagram.com/fatemeh_sooki?igsh=MXM4ZHBrNW55bmF0cQ==) and [linkedin](https://www.linkedin.com/in/fatemeh-sooki-197060396?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
