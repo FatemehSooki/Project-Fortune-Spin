@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Casino Wheel</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="master.css">
+</head>
+
+<body class="min-h-screen bg-black overflow-hidden flex items-center justify-center font-['Cinzel'] relative">
+
+
+  <div class="absolute top-[-150px] left-[-150px]
+ w-[400px] h-[400px]
+ bg-yellow-500/20 rounded-full blur-3xl animate-pulse">
+  </div>
+
+  <div class="absolute bottom-[-150px] right-[-150px]
+ w-[400px] h-[400px]
+ bg-red-700/20 rounded-full blur-3xl animate-pulse">
+  </div>
+
+  <div class="casino-grid"></div>
+
+
+  <section class="relative z-20 flex flex-col items-center">
+
+
+    <div class="mb-2 text-center">
+
+      <h1 class="text-xl md:text-3xl font-black tracking-[10px] gold-text">
+        JACKPOT
+      </h1>
+
+      <p class="text-yellow-200/70 mt-4 tracking-[3px]">
+        SPIN THE WHEEL OF FORTUNE
+      </p>
+
+    </div>
+
+    <!-- pointer -->
+
+    <div class="pointer"></div>
+
+    <!-- wheel -->
+
+    <div class="spin">
+
+      <div class="lights">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <button class="btn">
+        SPIN
+      </button>
+
+      <div class="lable">25% OFF</div>
+      <div class="lable">SMART WATCH</div>
+      <div class="lable">NOTHING</div>
+      <div class="lable">AIRPODS</div>
+      <div class="lable">FREE ITEM</div>
+      <div class="lable">IPHONE 17</div>
+      <div class="lable">100$ CARD</div>
+      <div class="lable">HEADPHONE</div>
+
+    </div>
+
+  </section>
+
+
+  <div class="popup">
+
+    <span>✕</span>
+
+    <div class="popup-content">
+
+      <h2>CONGRATULATIONS</h2>
+
+      <h1></h1>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <!-- footer// -->
+  <footer class="developer">
+
+    <div class="developer-card">
+
+      <img src="5823194412169760388.jpg" alt="Fatemeh Sooki">
+
+      <div class="developer-overlay">
+
+        <h3>Developed by</h3>
+
+        <h2>Fatemeh Sooki</h2>
+
+        <div class="developer-social">
+
+          <a href="https://github.com/FatemehSooki" target="_blank">
+            <i class="bi bi-github"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/fatemeh-sooki-197060396" target="_blank">
+            <i class="bi bi-linkedin"></i>
+          </a>
+
+          <a href="https://www.instagram.com/fatemeh_sooki" target="_blank">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+</body>
+
+<script>
+  let btn = document.querySelector('.btn')
+  let spin = document.querySelector('.spin')
+  let flag = true
+  let pointer = document.querySelector('.pointer')
+  let temp = 0
+  let x = ''
+  let y = ''
+  let txt = ''
+  let popup = document.querySelector('.popup')
+  let _h1 = document.querySelector('.popup>div>h1')
+  let _span = document.querySelector('.popup>span')
+
+  btn.addEventListener('click', () => {
+    if (flag) {
+
+      temp = Math.floor(Math.random() * 360)
+
+      console.log(temp);
+
+      spin.style.transform = 'rotate(' + (temp + 1080) + 'deg)'
+
+      btn.innerHTML = 'RESET'
+
+      spin.style.transition = '8s ease-out'
+
+      pointer.classList.add('animate')
+
+      x = setInterval(() => {
+        pointer.classList.remove('animate')
+      }, 7500);
+
+      flag = false
+
+      switch (true) {
+        case temp >= 0 && temp <= 45: txt = 'NOTHING!'; break;
+        case temp >= 46 && temp <= 90: txt = 'AIRPODS!'; break;
+        case temp >= 91 && temp <= 135: txt = 'ONE FREE ITEM!'; break;
+        case temp >= 136 && temp <= 180: txt = 'IPHONE 17!'; break;
+        case temp >= 181 && temp <= 225: txt = '100$ GIFT CARD!'; break;
+        case temp >= 226 && temp <= 270: txt = 'HEADPHONE!'; break;
+        case temp >= 271 && temp <= 315: txt = '25% DISSCOUNT!'; break;
+        case temp >= 316 && temp < 360: txt = 'SMART WATCH!'; break;
+      }
+
+      y = setTimeout(() => {
+        popup.classList.add('showPop')
+        _h1.innerHTML = txt
+      }, 9000);
+
+
+      _span.addEventListener('click', () => {
+        popup.classList.remove('showPop')
+        spin.style.transform = 'rotate(0deg)'
+        spin.style.transition = '2s'
+        btn.innerHTML = 'SPIN'
+        flag = true
+        clearInterval(x)
+        pointer.classList.remove('animate')
+      })
+
+    } else {
+
+      clearInterval(x)
+
+      pointer.classList.remove('animate')
+
+      spin.style.transform = 'rotate(0deg)'
+
+      spin.style.transition = '2s'
+
+      btn.innerHTML = 'SPIN'
+
+      flag = true
+
+      clearTimeout(y)
+
+    }
+
+  })
+</script>
+
+</html>
