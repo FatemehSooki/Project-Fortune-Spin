@@ -63,7 +63,7 @@ This project recreates the excitement of a real casino prize wheel with smooth s
 - Fatemeh Sooki
 - Role - Frontend
 
-- Created - 2026-06-05
+- Created - 2026-06-18
 
 - Mentor: [Parsa Ghorbanian](https://www.instagram.com/parsa_ghorbanian_web?igsh=MXQydDAxMW05ZjgyYg==)
 
